@@ -5,62 +5,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cars Memory Game</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Nothing+You+Could+Do">
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/app.js"></script>
+    <link rel="stylesheet" href="assets/font-awesome/css/fontawesome-all.css">
   </head>
 
   <body>
 
-    <header>
+    <header id="score-panel">
       <h1>Cars Memory Game</h1>
+      <ul>
+        <li>SCORE <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></i></li>
+        <li><i class="far fa-images"></i> 5 MOVES</li>
+        <li><i class="far fa-clock"></i> 23 SEC</li>
+        <li id="restart"><i class="fas fa-redo"></i> RESTART</li>
+      </ul>
     </header>
 
     <section id="memory-game">
-      <ul id="controls">
-        <li><a href="#"><span class="button">Beginner 16</div></a></li>
-        <li><a href="#"><span class="button">Expert 24</div></a></li>
-        <li><a href="#"><span class="button">Professional 32</div></a></li>
-      </ul>
-      <button id="btn">Click here!</button>
       <div class="container">
-        <div id="mc1" class="card">
+        <div id="mc1" class="card cardback">
         </div>
-        <div class="card">
+        <div class="card cardfront">
+          <img src="img/cast/louise-nash.png">
         </div>
-        <div class="card">
+        <div class="card cardback">
         </div>
-        <div class="card">
+        <div class="card cardback">
         </div>
-        <div class="card">
+        <div class="card cardback">
         </div>
-        <div class="card">
+        <div class="card cardback">
         </div>
-        <div class="card">
+        <div class="card cardfront match">
+          <img src="img/cast/jimbo.png">
         </div>
-        <div class="card">
+        <div class="card cardback">
         </div>
-        <div class="card">
+        <div class="card cardback">
         </div>
-        <div class="card">
+        <div class="card cardback">
         </div>
-        <div class="card">
+        <div class="card cardback">
         </div>
-        <div class="card">
+        <div class="card cardfront match">
+          <img src="img/cast/jimbo.png">
         </div>
-        <div class="card">
+        <div class="card cardback">
         </div>
-        <div class="card">
+        <div class="card cardfront">
+          <img src="img/cast/red.png">
         </div>
-        <div class="card">
+        <div class="card cardback">
         </div>
-        <div class="card">
+        <div class="card cardback">
         </div>
       </div>
     </section>
 
     <section id="cast">
-      <h1>Cast</h1>
+      <h2>Cast</h2>
       <div class="container__cast">
 
         <div class="character-area">
@@ -100,6 +104,13 @@
 
         <div class="character-area">
           <div class="character-card">
+            <h3>Herb Curbler</h3>
+            <img src="img/cast/herb-curbler.png">
+          </div>
+        </div>
+
+        <div class="character-area">
+          <div class="character-card">
             <h3>Hudson Hornet</h3>
             <img src="img/cast/hudson-hornet.png">
           </div>
@@ -109,6 +120,13 @@
           <div class="character-card">
             <h3>Jackson Storm</h3>
             <img src="img/cast/jackson-storm.png">
+          </div>
+        </div>
+
+        <div class="character-area">
+          <div class="character-card">
+            <h3>Jimbo</h3>
+            <img src="img/cast/jimbo.png">
           </div>
         </div>
 
@@ -170,6 +188,13 @@
 
         <div class="character-area">
           <div class="character-card">
+            <h3>Mr. Drippy</h3>
+            <img src="img/cast/mr-drippy.png">
+          </div>
+        </div>
+
+        <div class="character-area">
+          <div class="character-card">
             <h3>Red</h3>
             <img src="img/cast/red.png">
           </div>
@@ -177,8 +202,36 @@
 
         <div class="character-area">
           <div class="character-card">
+            <h3>Roscoe</h3>
+            <img src="img/cast/roscoe.png">
+          </div>
+        </div>
+
+        <div class="character-area">
+          <div class="character-card">
             <h3>Sally</h3>
             <img src="img/cast/sally.png">
+          </div>
+        </div>
+
+        <div class="character-area">
+          <div class="character-card">
+            <h3>Sarge</h3>
+            <img src="img/cast/sarge.png">
+          </div>
+        </div>
+
+        <div class="character-area">
+          <div class="character-card">
+            <h3>Sterling</h3>
+            <img src="img/cast/sterling.png">
+          </div>
+        </div>
+
+        <div class="character-area">
+          <div class="character-card">
+            <h3>Stu Scattershields</h3>
+            <img src="img/cast/stu-scattershields.png">
           </div>
         </div>
 
@@ -194,8 +247,10 @@
 
     <footer>
       <p>Disney/Pixar/Mattel elements:<br>© Disney/Pixar/Mattel</p>
-      <p>Site shipped by @hgtm</p>
+      <p>Site shipped by <a href="https://htimm.github.io/hgtm_de/">@hgtm</a></p>
     </footer>
+
+    <script src="js/app.js"></script>
 
   </body>
 

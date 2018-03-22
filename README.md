@@ -1,34 +1,15 @@
 # Cars Memory Game
 
-url
+https://htimm.github.io/cars-memory-game/
 
 ## Open Tasks
 
-- Immer zufällige Auswahl aus großem Bilderpool
-- mobile less margin
-- CAST linksbündig?
-- http://play.mattel.com/cars/en-us/diecast-collection.aspx
-- Make own repo
-- Publish site
-- Font
-- fix flicker at last breakpoint
-- make memory game responsive?
+- Remove this Open Tasks Section
 
-## Notepad
+## Resources
 
-define function for turning a card?
+Images taken from http://play.mattel.com/cars/en-us/diecast-collection.aspx
 
-Jeder Karte ein Bild zuordnen;
-
-onClick {
-  Karte umdrehen;
-}
-
-on 2nd click {
-  KArte umdrehen
-  if (match) {
-    offen lassen;
-  } else {
-    schließen
-  }
-}
+## Other devs examples:
+https://github.com/FrozziAle/Memory-Game/blob/master/js/app.js
+https://rodcunha.github.io/memory-game/
