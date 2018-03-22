@@ -1,0 +1,131 @@
+html,
+body {
+  color: #3b4146;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  text-align: center;
+}
+
+header {
+  background-color: #576165;
+  color: #fff;
+  padding: 8px;
+}
+
+footer {
+  background-color: #f2f2f2;
+  padding: 44px;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+#controls {
+  list-style-type: none;
+  padding: 0 14px;
+  color: #fff;
+}
+
+#controls li {
+  display: inline;
+  margin: 0 12px;
+}
+
+#memory-game {
+  padding: 20px;
+  background-image: url("../img/bgpatterns/sayagata.png");
+}
+
+#cast {
+  padding: 20px;
+}
+
+#cast img {
+  width: 100%;
+}
+
+.container {
+  /* background-color: #ececec; */
+  /* border-radius: 10px; */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  max-width: 700px;
+}
+
+.container__cast {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: #576165;
+  border-radius: 10px;
+  display: inline-flex;
+  margin: 10px;
+  padding: 20px;
+  width: 90px;
+  height: 90px;
+  box-shadow: 0 0 14px #787878;
+}
+
+.character-card {
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  box-shadow: 0 0 22px #e8e8e8;
+  margin: 16px;
+  padding: 12px;
+}
+
+.box {
+  border: 1px solid #a2a2a2;
+  width: 23%;
+  display: inline-block;
+  margin: 10px;
+}
+
+.button {
+  background-color: #01778E;
+  border-radius: 4px;
+  box-shadow: 0 0 14px #d0d0d0;
+  color: #fff;
+  display: inline-block;
+  font-weight: 500;
+  padding: 12px 18px;
+  transition: all 0.2s;
+}
+
+@media screen and (max-width: 499px){
+
+  .character-area {
+    width: 100%;
+  }
+
+}
+
+@media screen and (min-width: 500px) {
+
+  .character-area {
+    width: 50%;
+  }
+
+}
+
+@media screen and (min-width: 800px) {
+
+  .character-area {
+    width: 33.33333%;
+  }
+
+}
+
+@media screen and (min-width: 1088px) {
+
+  #cast {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1072px;
+  }
+
+}
