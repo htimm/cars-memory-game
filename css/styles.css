@@ -76,10 +76,16 @@ h2 {
   border-radius: 10px;
   box-shadow: 0 0 14px 0 #787878;
   display: inline-flex;
-  height: 98px;
+  height: 138px;
   margin: 8px;
-  padding: 20px;
-  width: 98px;
+  padding: 0;
+  vertical-align: middle;
+  width: 138px;
+}
+
+.card img {
+  margin: auto;
+  width: 100%;
 }
 
 .cardback {
@@ -91,12 +97,12 @@ h2 {
   cursor: pointer;
 }
 
-.cardfront {
-  background-color: #fff;
+.cardback img {
+  display: none;
 }
 
-.cardfront img {
-  width: 110px;
+.cardfront {
+  background-color: #fff;
 }
 
 .match {
