@@ -12,6 +12,14 @@ startButton.addEventListener('click', function() {
 const closedCards = document.querySelectorAll('.cardback');
 closedCards.forEach(function(element) {
   element.addEventListener('click', function() {
-    element.setAttribute('class', 'card cardfront');
+    element.setAttribute('class', 'card cardfront match');
   })
 })
+
+
+// Move and match
+
+const move = function() {
+  let flipCount = 0;
+
+}
