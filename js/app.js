@@ -1,15 +1,15 @@
-// Create event listener for restart button
+// restart feature
 
 const startButton = document.querySelector('#restart');
 startButton.addEventListener('click', function() {
   alert('You have clicked on the restart button.')
 })
 
-// Create event listeners for closed cards to flip
+// card flipper
 
 const closedCards = document.querySelectorAll('.cardback');
 closedCards.forEach(function(element) {
   element.addEventListener('click', function() {
-    alert('You have clicked on a closed card.');
+    element.setAttribute('class', 'card cardfront');
   })
 })
