@@ -1,3 +1,24 @@
+// card flipper: open two cards and then close them automatically
+
+const closedCards = document.querySelectorAll('.cardback');
+let openCards = [];
+
+closedCards.forEach(function(element) {
+  element.addEventListener('click', function() {
+    openCards.push(element);
+    element.setAttribute('class', 'card cardfront');
+    if (openCards.length == 2) {
+      setTimeout(function() {
+        openCards.forEach(function(element) {
+          element.setAttribute('class', 'card cardback');
+        });
+        openCards = [];
+      }, 600);
+    }
+  });
+});
+// prevent from opening 3 or more cards at a time
+
 // define function for positioning cards randomly in deck
 
 // restart feature
@@ -6,20 +27,11 @@ startButton.addEventListener('click', function() {
   alert('You have clicked on the restart button.')
   // look for open cards and flip them to closed
   // call function for positioning cards randomly in deck
-})
-
-// card flipper
-const closedCards = document.querySelectorAll('.cardback');
-closedCards.forEach(function(element) {
-  element.addEventListener('click', function() {
-    element.setAttribute('class', 'card cardfront match');
-  })
-})
-
+  // shuffle function provided in starter code?
+});
 
 // Move and match
 
 const move = function() {
   let flipCount = 0;
-
 }
