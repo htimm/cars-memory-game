@@ -10,14 +10,24 @@ const cards = [
   'red-760px.png', 'red-760px.png',
   'tex-dinoco-760px.png', 'tex-dinoco-760px.png'
 ]
+// Improvement: Fill up list with a random amount of pix and then let startGame() pick 8*2 of them automatically?
 
-// Shuffle cards and start game
 
-function startGame() {
+// Generate cards and deck
 
+function generateCard(card) {
+  return `<div class="card cardback"><img src="img/cast/${card}"></div>`;
 }
 
-// startGame();
+function startGame() {
+  const deck = document.querySelector('.container');
+  const deckCode = cards.map(function(card) {
+    return generateCard(card);
+  });
+  deck.innerHTML =  deckCode.join('');
+}
+
+startGame();
 
 
 // card flipper: lets you open two cards and checks if they match
@@ -44,14 +54,13 @@ closedCards.forEach(function(element) {
             element.setAttribute('class', 'card cardback');
           });
           openCards = [];
-        }, 540);
+        }, 600);
       }
     }
   });
 });
 // prevent from opening 3 or more cards at a time
 
-// define function for positioning cards randomly in deck
 
 // restart feature
 const startButton = document.querySelector('#restart');
@@ -61,9 +70,3 @@ startButton.addEventListener('click', function() {
   // call function for positioning cards randomly in deck
   // shuffle function provided in starter code?
 });
-
-// Move and match
-
-const move = function() {
-  let flipCount = 0;
-}
