@@ -1,19 +1,25 @@
-// card flipper: open two cards and then close them automatically
+// card flipper: open two cards and then close them automatically except tey match
 
 const closedCards = document.querySelectorAll('.cardback');
 let openCards = [];
 
 closedCards.forEach(function(element) {
   element.addEventListener('click', function() {
-    openCards.push(element);
-    element.setAttribute('class', 'card cardfront');
-    if (openCards.length == 2) {
-      setTimeout(function() {
-        openCards.forEach(function(element) {
-          element.setAttribute('class', 'card cardback');
-        });
-        openCards = [];
-      }, 600);
+
+    if (element.classList.contains('cardback')) {
+      openCards.push(element);
+      element.setAttribute('class', 'card cardfront');
+      if (openCards.length == 2) {
+
+        //wenn identisch lass offen, sonst close after timeout
+
+        setTimeout(function() {
+          openCards.forEach(function(element) {
+            element.setAttribute('class', 'card cardback');
+          });
+          openCards = [];
+        }, 540);
+      }
     }
   });
 });
