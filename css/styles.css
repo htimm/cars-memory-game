@@ -106,7 +106,6 @@ h2 {
 }
 
 .match {
-  /* background-color: #e5f0df; */
   background-image: url("../img/checkmark.png");
   background-size: 36px;
   background-repeat: no-repeat;

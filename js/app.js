@@ -51,26 +51,24 @@ startGame();
 const closedCards = document.querySelectorAll('.cardback');
 let openCards = [];
 
-closedCards.forEach(function(element) {
-  element.addEventListener('click', function() {
-
-    if (element.classList.contains('cardback')) {
-      openCards.push(element);
-      element.setAttribute('class', 'card cardfront');
-
-      //hier?
-
+closedCards.forEach(function(card) {
+  card.addEventListener('click', function() {
+    if (card.classList.contains('cardback')) {
+      openCards.push(card);
+      card.setAttribute('class', 'card cardfront');
       if (openCards.length == 2) {
-
-        //oder hier?
-        //wenn identisch lass offen, sonst close after timeout
-
-        setTimeout(function() {
-          openCards.forEach(function(element) {
-            element.setAttribute('class', 'card cardback');
-          });
+        if (openCards[0].innerHTML == openCards[1].innerHTML) {
+          openCards[0].setAttribute('class', 'card cardfront match');
+          openCards[1].setAttribute('class', 'card cardfront match');
           openCards = [];
-        }, 600);
+        } else {
+          setTimeout(function() {
+            openCards.forEach(function(card) {
+              card.setAttribute('class', 'card cardback');
+            });
+            openCards = [];
+          }, 480);
+        }
       }
     }
   });
@@ -78,13 +76,12 @@ closedCards.forEach(function(element) {
 // prevent from opening 3 or more cards at a time
 
 
-// restart feature
+// Restart
+
 const startButton = document.querySelector('#restart');
 startButton.addEventListener('click', function() {
-  alert('You have clicked on the restart button.')
-  // look for open cards and flip them to closed
-  // call function for positioning cards randomly in deck
-  // shuffle function provided in starter code?
+  startGame();
+  // cards not clickable yet after restart
 });
 
 
