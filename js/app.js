@@ -1,17 +1,15 @@
 // List of card front pix
 
 const cards = [
-  'herb-curbler-760px.png',
-  'jimbo-760px.png',
-  'lightyear-blimp-760px.png',
-  'lizzie-760px.png',
-  'louise-nash-760px.png',
-  'mater-760px.png',
-  'red-760px.png',
-  'stu-scattershields-760px.png',
-  'tex-dinoco-760px.png'
+  'herb-curbler-760px.png', 'herb-curbler-760px.png',
+  'jimbo-760px.png', 'jimbo-760px.png',
+  'lightyear-blimp-760px.png', 'lightyear-blimp-760px.png',
+  'lizzie-760px.png', 'lizzie-760px.png',
+  'louise-nash-760px.png', 'louise-nash-760px.png',
+  'mater-760px.png', 'mater-760px.png',
+  'red-760px.png', 'red-760px.png',
+  'tex-dinoco-760px.png', 'tex-dinoco-760px.png'
 ]
-
 
 // Shuffle cards and start game
 
