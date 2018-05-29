@@ -31,6 +31,9 @@ function shuffle(array) {
 
 // Generate cards and deck
 
+const moveCounter = document.querySelector('#move-counter');
+let moves = 0;
+
 function generateCard(card) {
   return `<div class="card cardback"><img src="img/cast/${card}"></div>`;
 }
@@ -40,6 +43,8 @@ function startGame() {
   const deckCode = shuffle(cards).map(function(card) {
     return generateCard(card);
   });
+  moves = 0;
+  moveCounter.innerHTML = `<i class="far fa-images"></i> MOVES: `+ moves;
   deck.innerHTML =  deckCode.join('');
 }
 
@@ -47,6 +52,7 @@ startGame();
 
 
 // card flipper: lets you open two cards and checks if they match
+// includes move counter
 
 const closedCards = document.querySelectorAll('.cardback');
 let openCards = [];
@@ -69,6 +75,8 @@ closedCards.forEach(function(card) {
             openCards = [];
           }, 480);
         }
+        moves += 1;
+        moveCounter.innerHTML = `<i class="far fa-images"></i> MOVES: `+ moves;
       }
     }
   });
