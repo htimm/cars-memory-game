@@ -38,7 +38,7 @@ function generateCard(card) {
   return `<div class="card cardback"><img src="img/cast/${card}"></div>`;
 }
 
-function startGame() {
+function playGame() {
   const deck = document.querySelector('.container');
   const deckCode = shuffle(cards).map(function(card) {
     return generateCard(card);
@@ -46,60 +46,50 @@ function startGame() {
   moves = 0;
   moveCounter.innerHTML = `<i class="far fa-images"></i> MOVES: `+ moves;
   deck.innerHTML =  deckCode.join('');
+
+
+  // card flipper: lets you open two cards and checks if they match
+  // includes move counter
+
+  const closedCards = document.querySelectorAll('.cardback');
+  let openCards = [];
+
+  closedCards.forEach(function(card) {
+    card.addEventListener('click', function() {
+      if (card.classList.contains('cardback')) {
+        openCards.push(card);
+        card.setAttribute('class', 'card cardfront');
+        if (openCards.length == 2) {
+          if (openCards[0].innerHTML == openCards[1].innerHTML) {
+            openCards[0].setAttribute('class', 'card cardfront match');
+            openCards[1].setAttribute('class', 'card cardfront match');
+            openCards = [];
+          } else {
+            setTimeout(function() {
+              openCards.forEach(function(card) {
+                card.setAttribute('class', 'card cardback');
+              });
+              openCards = [];
+            }, 480);
+          }
+          moves += 1;
+          moveCounter.innerHTML = `<i class="far fa-images"></i> MOVES: `+ moves;
+        }
+      }
+    });
+  });
+  // prevent from opening 3 or more cards at a time
 }
 
-startGame();
+playGame();
 
 
-// card flipper: lets you open two cards and checks if they match
-// includes move counter
-
-const closedCards = document.querySelectorAll('.cardback');
-let openCards = [];
-
-closedCards.forEach(function(card) {
-  card.addEventListener('click', function() {
-    if (card.classList.contains('cardback')) {
-      openCards.push(card);
-      card.setAttribute('class', 'card cardfront');
-      if (openCards.length == 2) {
-        if (openCards[0].innerHTML == openCards[1].innerHTML) {
-          openCards[0].setAttribute('class', 'card cardfront match');
-          openCards[1].setAttribute('class', 'card cardfront match');
-          openCards = [];
-        } else {
-          setTimeout(function() {
-            openCards.forEach(function(card) {
-              card.setAttribute('class', 'card cardback');
-            });
-            openCards = [];
-          }, 480);
-        }
-        moves += 1;
-        moveCounter.innerHTML = `<i class="far fa-images"></i> MOVES: `+ moves;
-      }
-    }
-  });
-});
-// prevent from opening 3 or more cards at a time
-
-
-// Restart
+// Restart Game
 
 const startButton = document.querySelector('#restart');
 startButton.addEventListener('click', function() {
-  startGame();
-  // cards not clickable yet after restart
+  playGame();
 });
 
 
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
+// if all cards have matched, display a message with the final score
