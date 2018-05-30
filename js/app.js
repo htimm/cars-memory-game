@@ -14,11 +14,15 @@ const cards = [
 
 // Global variables
 
+const deck = document.querySelector('.container');
+
 const moveCounter = document.querySelector('#move-counter');
 let moves = 0;
 
 const timer = document.querySelector('#timer');
-let sec = 0;
+let secs = 0;
+
+let matches = 0;
 
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -46,10 +50,9 @@ function generateCard(card) {
 // The Game
 
 function playGame() {
-  const deck = document.querySelector('.container');
-  const deckCode = shuffle(cards).map(function(card) {
-    return generateCard(card);
-  });
+
+
+  // Reset move counter and timer
 
   moves = 0;
   moveCounter.innerHTML = `<i class="far fa-images"></i> MOVES: ` + moves;
@@ -57,11 +60,27 @@ function playGame() {
   secs = 0;
   timer.innerHTML = `<i class="far fa-clock"></i> ` + secs + ` SEC`;
 
+
+  // Second counter
+
+  function secCounter() {
+    secs += 1;
+    timer.innerHTML = `<i class="far fa-clock"></i> ` + secs + ` SEC`;
+  }
+
+setInterval(secCounter, 1000);
+
+
+  // Shuffle cards and layout new deck
+
+  const deckCode = shuffle(cards).map(function(card) {
+    return generateCard(card);
+  });
+
   deck.innerHTML =  deckCode.join('');
 
 
-  // card flipper: lets you open two cards and checks if they match
-  // includes move counter
+  // Card flipper (includes matching, reclosing, counting up moves and the timer)
 
   const closedCards = document.querySelectorAll('.cardback');
   let openCards = [];
@@ -75,8 +94,20 @@ function playGame() {
           if (openCards[0].innerHTML == openCards[1].innerHTML) {
             openCards[0].setAttribute('class', 'card cardfront match');
             openCards[1].setAttribute('class', 'card cardfront match');
+
+            // Stop timer and open popup when all matching pairs have been found
+
+            matches += 1;
+            if (matches == 8) {
+              clearInterval(secCounter);
+              // Open popup with cup
+            }
             openCards = [];
           } else {
+
+
+            // Close card if they do not match
+
             setTimeout(function() {
               openCards.forEach(function(card) {
                 card.setAttribute('class', 'card cardback');
@@ -96,7 +127,7 @@ function playGame() {
 playGame();
 
 
-// Restart Game
+// Restart game
 
 const startButton = document.querySelector('#restart');
 startButton.addEventListener('click', function() {
