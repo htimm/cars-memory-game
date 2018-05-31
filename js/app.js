@@ -24,6 +24,8 @@ let secs = 0;
 
 let matches = 0;
 
+let clicks = 0;
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 
@@ -78,6 +80,8 @@ function playGame() {
 
   matches = 0;
 
+  clicks = 0;
+
 
   // Shuffle cards and layout new deck
 
@@ -87,7 +91,6 @@ function playGame() {
 
   deck.innerHTML =  deckCode.join('');
 
-  startTimer();
 
   // Card flipper (includes matching, reclosing, counting up moves and the timer)
 
@@ -96,6 +99,11 @@ function playGame() {
 
   closedCards.forEach(function(card) {
     card.addEventListener('click', function() {
+      clicks +=1;
+      if (clicks == 1) {
+        startTimer();
+      }
+      console.log('Clicks: ' + clicks);
       if (card.classList.contains('cardback')) {
         openCards.push(card);
         card.setAttribute('class', 'card cardfront');
