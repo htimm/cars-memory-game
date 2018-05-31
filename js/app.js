@@ -47,6 +47,22 @@ function generateCard(card) {
 }
 
 
+// Timer functions
+
+function startTimer() {
+  timerID = setInterval(countUp, 1000);
+}
+
+function countUp() {
+  secs += 1;
+  timer.innerHTML = `<i class="far fa-clock"></i> ` + secs + ` SEC`;
+}
+
+function stopTimer() {
+  clearInterval(timerID);
+}
+
+
 // The Game
 
 function playGame() {
@@ -60,15 +76,7 @@ function playGame() {
   secs = 0;
   timer.innerHTML = `<i class="far fa-clock"></i> ` + secs + ` SEC`;
 
-
-  // Second counter
-
-  function secCounter() {
-    secs += 1;
-    timer.innerHTML = `<i class="far fa-clock"></i> ` + secs + ` SEC`;
-  }
-
-setInterval(secCounter, 1000);
+  matches = 0;
 
 
   // Shuffle cards and layout new deck
@@ -79,6 +87,7 @@ setInterval(secCounter, 1000);
 
   deck.innerHTML =  deckCode.join('');
 
+  startTimer();
 
   // Card flipper (includes matching, reclosing, counting up moves and the timer)
 
@@ -98,10 +107,12 @@ setInterval(secCounter, 1000);
             // Stop timer and open popup when all matching pairs have been found
 
             matches += 1;
-            if (matches == 8) {
-              clearInterval(secCounter);
-              // Open popup with cup
-            }
+            setTimeout(function() {
+              if (matches == 8) {
+                stopTimer();
+                alert('Finished in ' + moves + ' moves and ' + secs + ' seconds.');
+              }
+            }, 200);
             openCards = [];
           } else {
 
@@ -131,5 +142,6 @@ playGame();
 
 const startButton = document.querySelector('#restart');
 startButton.addEventListener('click', function() {
+  stopTimer();
   playGame();
 });

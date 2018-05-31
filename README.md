@@ -12,6 +12,7 @@ https://htimm.github.io/cars-memory-game/
 - check with project specs
 - Add css animations
 - Improvement: Fill up list with a random amount of pix and then let playGame() function pick 8*2 of them automatically? Otherwise pick favorite cards
+- Stop timer at some point
 
 ## Resources
 
