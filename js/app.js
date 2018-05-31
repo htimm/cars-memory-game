@@ -26,6 +26,8 @@ let matches = 0;
 
 let clicks = 0;
 
+const congratsModal = document.querySelector('#congrats-modal');
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 
@@ -62,6 +64,19 @@ function countUp() {
 
 function stopTimer() {
   clearInterval(timerID);
+}
+
+
+// Modal handling functions
+
+function openModal() {
+  congratsModal.style.display = "block";
+}
+
+window.onclick = function(event) {
+    if (event.target == congratsModal) {
+        congratsModal.style.display = "none";
+    }
 }
 
 
@@ -103,7 +118,6 @@ function playGame() {
       if (clicks == 1) {
         startTimer();
       }
-      console.log('Clicks: ' + clicks);
       if (card.classList.contains('cardback')) {
         openCards.push(card);
         card.setAttribute('class', 'card cardfront');
@@ -118,7 +132,7 @@ function playGame() {
             setTimeout(function() {
               if (matches == 8) {
                 stopTimer();
-                alert('Finished in ' + moves + ' moves and ' + secs + ' seconds.');
+                openModal();
               }
             }, 200);
             openCards = [];
@@ -153,3 +167,9 @@ startButton.addEventListener('click', function() {
   stopTimer();
   playGame();
 });
+
+const playAgain = document.querySelector('.button');
+playAgain.addEventListener('click', function() {
+  congratsModal.style.display = "none";
+  playGame();
+})
