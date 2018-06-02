@@ -2,23 +2,34 @@
 
 https://htimm.github.io/cars-memory-game/
 
-## Open Tasks
-
-- Add modal popup with stats and restart button at game end
-- Add star rating
-- use timeout or similar for preventing 3rd or more card openings
-- if all cards have matched, display a message with the final score
-- Set meaningful comments
-- check with style guides
-- check with project specs
-- Add css animations
-- Improvement: Fill up list with a random amount of pix and then let playGame() function pick 8*2 of them automatically? Otherwise pick favorite cards
-- Stop timer at some point
-
 ## Score rating
 
-Three stars: moves < 14 and seconds < 24
+Five stars: moves <= 11
+Four stars: moves <= 16
+Three stars: moves <= 21
+Two stars: moves <= 26
+One star: moves > 26
 
 ## Resources
 
+Disney/Pixar/Mattel elements: © Disney/Pixar/Mattel
 Images taken from http://play.mattel.com/cars/en-us/diecast-collection.aspx
+
+## Open Tasks
+
+### In Udacity project scope
+
+- Add star rating
+- Add real stats to popup
+- Set meaningful comments
+- Check with style guides
+- Check with project specs
+
+### Out of Udacity project scope
+
+- Prevent from opening more than two cards
+- Add animations
+- Add more pix and pick 8*2 of them automatically with each game start (Otherwise pick favorite pix)
+- Stop timer at some point
+- Add option for larger decks (16, 20, 24 cards)
+- Add option for different themes (Cars, Star Wars)

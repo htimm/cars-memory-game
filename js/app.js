@@ -22,6 +22,9 @@ let moves = 0;
 const timer = document.querySelector('#timer');
 let secs = 0;
 
+const score = document.querySelectorAll('.score');
+let stars = 5;
+
 let matches = 0;
 
 let clicks = 0;
@@ -67,6 +70,31 @@ function stopTimer() {
 }
 
 
+// Show score
+
+function showScore() {
+  const fiveStarsCode = `<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>`;
+  const fourStarsCode = `<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>`;
+  const threeStarsCode = `<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>`;
+  const twoStarsCode = `<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>`;
+  const oneStarCode = `<i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>`;
+  if (stars == 5) {
+    scoreCode = fiveStarsCode;
+  } else if (stars == 4) {
+    scoreCode = fourStarsCode;
+  } else if (stars == 3) {
+    scoreCode = threeStarsCode;
+  } else if (stars == 2) {
+    scoreCode = twoStarsCode;
+  } else if (stars == 1) {
+    scoreCode = oneStarCode;
+  }
+  score.forEach(function(e) {
+    e.innerHTML = scoreCode;
+  });
+}
+
+
 // Modal handling functions
 
 function openModal() {
@@ -92,6 +120,9 @@ function playGame() {
 
   secs = 0;
   timer.innerHTML = `<i class="far fa-clock"></i> ` + secs + ` SEC`;
+
+  stars = 5;
+  showScore();
 
   matches = 0;
 
@@ -138,7 +169,6 @@ function playGame() {
             openCards = [];
           } else {
 
-
             // Close card if they do not match
 
             setTimeout(function() {
@@ -150,6 +180,19 @@ function playGame() {
           }
           moves += 1;
           moveCounter.innerHTML = `<i class="far fa-images"></i> MOVES: ` + moves;
+
+          if (moves <= 11) {
+            stars = 5;
+          } else if (moves <= 16) {
+            stars = 4;
+          } else if (moves <= 21) {
+            stars = 3;
+          } else if (moves <= 26) {
+            stars = 2;
+          } else {
+            stars = 1;
+          }
+          showScore();
         }
       }
     });
