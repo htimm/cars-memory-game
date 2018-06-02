@@ -5,10 +5,10 @@ https://htimm.github.io/cars-memory-game/
 ## Score rating
 
 Five stars: moves <= 11
-Four stars: moves <= 16
-Three stars: moves <= 21
-Two stars: moves <= 26
-One star: moves > 26
+Four stars: moves <= 15
+Three stars: moves <= 19
+Two stars: moves <= 23
+One star: moves > 23
 
 ## Resources
 

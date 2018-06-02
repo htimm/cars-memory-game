@@ -183,11 +183,11 @@ function playGame() {
 
           if (moves <= 11) {
             stars = 5;
-          } else if (moves <= 16) {
+          } else if (moves <= 15) {
             stars = 4;
-          } else if (moves <= 21) {
+          } else if (moves <= 19) {
             stars = 3;
-          } else if (moves <= 26) {
+          } else if (moves <= 23) {
             stars = 2;
           } else {
             stars = 1;
