@@ -19,8 +19,6 @@ Images taken from http://play.mattel.com/cars/en-us/diecast-collection.aspx
 
 ### In Udacity project scope
 
-- Add star rating
-- Add real stats to popup
 - Set meaningful comments
 - Check with style guides
 - Check with project specs

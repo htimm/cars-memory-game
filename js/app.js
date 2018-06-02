@@ -31,6 +31,8 @@ let clicks = 0;
 
 const congratsModal = document.querySelector('#congrats-modal');
 
+const statsParagraph = document.querySelector('#stats');
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 
@@ -163,6 +165,7 @@ function playGame() {
             setTimeout(function() {
               if (matches == 8) {
                 stopTimer();
+                statsParagraph.innerHTML = `Finished with <strong>` + moves + ` moves</strong> in <strong>` + secs + ` seconds</strong>.`;
                 openModal();
               }
             }, 200);
