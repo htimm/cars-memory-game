@@ -14,12 +14,3 @@ One star: moves > 23
 
 Disney/Pixar/Mattel elements: © Disney/Pixar/Mattel
 Images taken from http://play.mattel.com/cars/en-us/diecast-collection.aspx
-
-## Open Tasks
-
-- Prevent from opening more than two cards
-- Add animations
-- Add more pix and pick 8*2 of them automatically with each game start (Otherwise pick favorite pix)
-- Stop timer at some point
-- Add option for larger decks (16, 20, 24 cards)
-- Add option for different themes (Cars, Star Wars)
